@@ -1,27 +1,26 @@
 import MenuBar from "./components/MenuBar";
 import StudentList from "./components/StudentList";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { getCohorts } from "./fetches/teams";
+import { GITHUB_TOKEN } from "./keys";
 import styled from "styled-components";
 
 function App() {
-    const [ token, setToken ] = useState("");
-    const [ cohort, setCohort ] = useState("Enter Token");
-    const [ cohorts, setCohorts ] = useState([]);
+    const [ cohort, setCohort ] = useState("Cohort2");
+    const [ cohorts, setCohorts ] = useState(["Cohort1", "Cohort2"]);
 
-    const handleTokenChange = (str) => {
-        console.log(token);
-        setToken(str);
+    useEffect(() => {
+
+    }, []);
+
+    const handleCohortChange = e => {
+        console.log(e.target.value);
+        setCohort(e.target.value);
     };
-
-    const handleTokenSubmit = async () => {
-        console.log(token);
-        setCohorts(await getCohorts(token));
-    }
 
     return (
         <AppWrapper>
-            <MenuBar cohort={cohort} token={token} setToken={handleTokenChange} submitToken={handleTokenSubmit} />
+            <MenuBar cohort={cohort} changeCohort={handleCohortChange} cohorts={cohorts} />
             <StudentList />
         </AppWrapper>
     )

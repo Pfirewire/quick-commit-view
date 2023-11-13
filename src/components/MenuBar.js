@@ -1,20 +1,16 @@
 import styled from "styled-components";
 
-function MenuBar({ cohort, token, setToken, submitToken }) {
-    const handleTokenChange = e => {
-        setToken(e.target.value);
-    };
+function MenuBar({ cohort, changeCohort, cohorts }) {
 
-    const handleTokenSubmit = () => {
-        console.log("Inside MenuBar handleTokenSubmit function");
-        submitToken();
-    };
+    const cohortsSelect = cohorts.map((singleCohort, index) => {
+        return <option key={index} value={singleCohort}>{singleCohort}</option>
+    });
 
     return (
         <MenuBarContainer>
-            Menu Bar: {cohort}
-            <input type={"text"} value={token} onChange={handleTokenChange} />
-            <button onClick={handleTokenSubmit}>Submit</button>
+            <select value={cohort} name={"cohorts"} onChange={changeCohort}>
+                {cohortsSelect}
+            </select>
         </MenuBarContainer>
     );
 }
