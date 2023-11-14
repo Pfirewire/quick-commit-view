@@ -7,8 +7,8 @@ import styled from "styled-components";
 import {convertTeamNames} from "./utils/convert-teams";
 
 function App() {
-    const [ cohort, setCohort ] = useState("Cohort2");
-    const [ cohorts, setCohorts ] = useState(["Cohort1", "Cohort2"]);
+    const [ cohort, setCohort ] = useState("");
+    const [ cohorts, setCohorts ] = useState([]);
 
     useEffect(() => {
         console.log("Inside App.js useEffect");

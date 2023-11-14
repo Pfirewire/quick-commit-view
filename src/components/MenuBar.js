@@ -3,7 +3,7 @@ import styled from "styled-components";
 function MenuBar({ cohort, changeCohort, cohorts }) {
 
     const cohortsSelect = cohorts.map((singleCohort, index) => {
-        return <option key={index} value={singleCohort.name}>{singleCohort.name}</option>
+        return <option key={index} value={singleCohort.id}>{singleCohort.name}</option>
     });
 
     return (
