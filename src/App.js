@@ -2,7 +2,7 @@ import MenuBar from "./components/MenuBar";
 import StudentList from "./components/StudentList";
 import {useEffect, useState} from "react";
 import { getCohorts } from "./fetches/teams";
-import { GITHUB_TOKEN } from "./keys";
+import { GITHUB_PERSONAL_TOKEN } from "./keys";
 import styled from "styled-components";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     useEffect(() => {
         console.log("Inside App.js useEffect");
         (async () => {
-            const teams = await getCohorts(GITHUB_TOKEN);
+            const teams = await getCohorts(GITHUB_PERSONAL_TOKEN);
             console.log(teams);
         })();
     }, []);

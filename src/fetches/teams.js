@@ -1,5 +1,5 @@
 export const getCohorts = async token => {
-    const url = `https://api.github.com/orgs/codeupClassroom/teams`
+    const url = `https://api.github.com/orgs/codeupClassroom/teams?per_page=100`
     const options = {
         method: "GET",
         headers: {
