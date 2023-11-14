@@ -1,19 +1,29 @@
 import styled from "styled-components";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {getTeamMembers} from "../fetches/members";
 import {GITHUB_PERSONAL_TOKEN} from "../keys";
+import Student from "./Student";
 
 function StudentList({ cohort }) {
+    const [members, setMembers] = useState([]);
 
     useEffect(() => {
         console.log(cohort);
         (async () => {
-            const members = await getTeamMembers(cohort, GITHUB_PERSONAL_TOKEN);
-            console.log(members);
+            const teamMembers = await getTeamMembers(cohort, GITHUB_PERSONAL_TOKEN);
+            console.log(teamMembers);
+            setMembers(teamMembers);
         })();
     }, [cohort]);
 
-    const students = cohort === "" ? "No Cohort" : cohort;
+    let students;
+
+    if(members !== null) {
+        students = members.map((member, index) => {
+            return <Student key={index} student={member} />
+        });
+    }
+
 
     return (
         <StudentListContainer>
