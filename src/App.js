@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import { getCohorts } from "./fetches/teams";
 import { GITHUB_PERSONAL_TOKEN } from "./keys";
 import styled from "styled-components";
+import {convertTeamNames} from "./utils/convert-teams";
 
 function App() {
     const [ cohort, setCohort ] = useState("Cohort2");
@@ -13,7 +14,8 @@ function App() {
         console.log("Inside App.js useEffect");
         (async () => {
             const teams = await getCohorts(GITHUB_PERSONAL_TOKEN);
-            console.log(teams);
+            const updatedTeams = convertTeamNames(teams);
+            setCohorts(updatedTeams);
         })();
     }, []);
 
@@ -25,7 +27,7 @@ function App() {
     return (
         <AppWrapper>
             <MenuBar cohort={cohort} changeCohort={handleCohortChange} cohorts={cohorts} />
-            <StudentList />
+            <StudentList cohort={cohort} />
         </AppWrapper>
     )
 }
