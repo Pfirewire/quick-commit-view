@@ -10,7 +10,11 @@ function App() {
     const [ cohorts, setCohorts ] = useState(["Cohort1", "Cohort2"]);
 
     useEffect(() => {
-
+        console.log("Inside App.js useEffect");
+        (async () => {
+            const teams = await getCohorts(GITHUB_TOKEN);
+            console.log(teams);
+        })();
     }, []);
 
     const handleCohortChange = e => {
