@@ -1,24 +1,18 @@
 import styled from "styled-components";
-import {useEffect} from "react";
-import {getPublicEvents} from "../fetches/events";
-import {GITHUB_PERSONAL_TOKEN} from "../keys";
 import GitHubCalendar from "react-github-calendar";
 
 function Student({ student }) {
-
-
-    useEffect(() => {
-        (async () => {
-            const events = await getPublicEvents(student.login, GITHUB_PERSONAL_TOKEN);
-
-        })();
-    }, []);
+    const handleAvatarClick = e => {
+        const url = e.target.nextElementSibling.getAttribute('href');
+        console.log(url);
+        window.open(url, "_blank");
+    }
 
     return (
         <StudentContainer>
             <LeftWrapper>
-                <StudentImg src={student.avatar_url} />
-                {student.login}
+                <StudentImg src={student.avatar_url} onClick={handleAvatarClick} />
+                <a target={"_blank"} href={student.html_url}>{student.login}</a>
             </LeftWrapper>
             <RightWrapper>
                 <GitHubCalendar username={student.login} colorScheme={"dark"} blockSize={10} fontSize={12} />
@@ -40,6 +34,11 @@ const StudentImg = styled.img`
     height: 5rem;
     width: 5rem;
     border-radius: 50%;
+    transition: transform 120ms ease-in-out;
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
 `;
 
 const LeftWrapper = styled.div`
