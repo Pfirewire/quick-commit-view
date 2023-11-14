@@ -11,7 +11,6 @@ function App() {
     const [ cohorts, setCohorts ] = useState([]);
 
     useEffect(() => {
-        console.log("Inside App.js useEffect");
         (async () => {
             const teams = await getCohorts(GITHUB_PERSONAL_TOKEN);
             const updatedTeams = convertTeamNames(teams);
@@ -20,7 +19,6 @@ function App() {
     }, []);
 
     const handleCohortChange = e => {
-        console.log(e.target.value);
         setCohort(e.target.value);
     };
 

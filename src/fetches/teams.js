@@ -10,7 +10,6 @@ export const getCohorts = async token => {
     const res = await fetch(url, options);
     if(res.ok) {
         const data = await res.json();
-        console.log(data);
         return data;
     } else {
         console.log("Something went wrong getting teams");

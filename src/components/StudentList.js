@@ -8,10 +8,8 @@ function StudentList({ cohort }) {
     const [members, setMembers] = useState([]);
 
     useEffect(() => {
-        console.log(cohort);
         (async () => {
             const teamMembers = await getTeamMembers(cohort, GITHUB_PERSONAL_TOKEN);
-            console.log(teamMembers);
             setMembers(teamMembers);
         })();
     }, [cohort]);
