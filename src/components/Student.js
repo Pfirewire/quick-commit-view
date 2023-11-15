@@ -10,8 +10,8 @@ function Student({ student }) {
     return (
         <StudentContainer>
             <LeftWrapper>
-                <StudentImg src={student.avatar_url} onClick={handleAvatarClick} />
                 <a target={"_blank"} href={student.html_url}>{student.login}</a>
+                <StudentImg src={student.avatar_url} onClick={handleAvatarClick} />
             </LeftWrapper>
             <RightWrapper>
                 <GitHubCalendar username={student.login} colorScheme={"dark"} blockSize={10} fontSize={12} />
@@ -25,8 +25,10 @@ export default Student;
 const StudentContainer = styled.div`
     display: flex;
     padding: 1rem;
+    justify-content: center;
     align-items: center;
     gap: 1rem;
+    min-width: 1080px;
 `;
 
 const StudentImg = styled.img`
@@ -42,9 +44,10 @@ const StudentImg = styled.img`
 
 const LeftWrapper = styled.div`
     display: flex;
+    justify-content: end;
     align-items: center;
     gap: 1rem;
-    width: 20rem;
+    width: 15rem;
 `;
 
 const RightWrapper = styled.div`
