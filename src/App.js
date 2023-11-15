@@ -7,7 +7,7 @@ import styled from "styled-components";
 import {convertTeamNames} from "./utils/convert-teams";
 
 function App() {
-    const [ cohort, setCohort ] = useState("");
+    const [ cohort, setCohort ] = useState("-1");
     const [ cohorts, setCohorts ] = useState([]);
 
     useEffect(() => {

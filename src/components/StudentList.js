@@ -9,8 +9,12 @@ function StudentList({ cohort }) {
 
     useEffect(() => {
         (async () => {
-            const teamMembers = await getTeamMembers(cohort, GITHUB_PERSONAL_TOKEN);
-            setMembers(teamMembers);
+            console.log(cohort);
+            if(cohort != -1) {
+                console.log("Inside if")
+                const teamMembers = await getTeamMembers(cohort, GITHUB_PERSONAL_TOKEN);
+                setMembers(teamMembers);
+            }
         })();
     }, [cohort]);
 
