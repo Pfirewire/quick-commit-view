@@ -3,7 +3,7 @@ import GitHubCalendar from "react-github-calendar";
 
 function Student({ student }) {
     const handleAvatarClick = e => {
-        const url = e.target.nextElementSibling.getAttribute('href');
+        const url = e.target.previousElementSibling.getAttribute('href');
         window.open(url, "_blank");
     }
 
