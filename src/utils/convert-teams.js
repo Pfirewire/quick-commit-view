@@ -7,5 +7,6 @@ export const convertTeamNames = teams => {
             team.name = team.name.substring(0, team.name.indexOf('-students'));
         }
     }
+    updatedTeams.unshift({id: -1, name: "Choose Cohort"});
     return updatedTeams;
 };

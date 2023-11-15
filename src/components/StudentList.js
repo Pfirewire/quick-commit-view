@@ -20,6 +20,8 @@ function StudentList({ cohort }) {
         students = members.map((member, index) => {
             return <Student key={index} student={member} />
         });
+    } else {
+        students = <EmptyCohortMessage>Please choose a cohort</EmptyCohortMessage>
     }
 
 
@@ -34,4 +36,9 @@ export default StudentList;
 
 const StudentListContainer = styled.div`
     padding: 2rem;
+`;
+
+const EmptyCohortMessage = styled.div`
+    display: flex;
+    justify-content: center;
 `;
