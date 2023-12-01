@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import { getCohorts } from "./fetches/teams";
 import styled from "styled-components";
 import {convertTeamNames} from "./utils/convert-teams";
+import {GITHUB_PERSONAL_TOKEN} from "./keys";
 
 function App() {
     const [ cohort, setCohort ] = useState("-1");
@@ -11,7 +12,7 @@ function App() {
 
     useEffect(() => {
         (async () => {
-            const teams = await getCohorts("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");
+            const teams = await getCohorts("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");
             const updatedTeams = convertTeamNames(teams);
             setCohorts(updatedTeams);
         })();

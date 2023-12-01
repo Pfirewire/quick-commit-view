@@ -1,4 +1,5 @@
 export const convertTeamNames = teams => {
+    console.log(teams);
     const updatedTeams = teams.filter(team => {
         return (team.slug.toLowerCase().includes('-students'));
     });
