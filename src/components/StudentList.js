@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import {useEffect, useState} from "react";
 import {getTeamMembers} from "../fetches/members";
-import {GITHUB_PERSONAL_TOKEN} from "../keys";
 import Student from "./Student";
 
 function StudentList({ cohort }) {
@@ -12,7 +11,7 @@ function StudentList({ cohort }) {
             console.log(cohort);
             if(cohort != -1) {
                 console.log("Inside if")
-                const teamMembers = await getTeamMembers(cohort, GITHUB_PERSONAL_TOKEN);
+                const teamMembers = await getTeamMembers(cohort, "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");
                 setMembers(teamMembers);
             }
         })();

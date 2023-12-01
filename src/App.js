@@ -2,7 +2,6 @@ import MenuBar from "./components/MenuBar";
 import StudentList from "./components/StudentList";
 import {useEffect, useState} from "react";
 import { getCohorts } from "./fetches/teams";
-import { GITHUB_PERSONAL_TOKEN } from "./keys";
 import styled from "styled-components";
 import {convertTeamNames} from "./utils/convert-teams";
 
@@ -12,7 +11,7 @@ function App() {
 
     useEffect(() => {
         (async () => {
-            const teams = await getCohorts(GITHUB_PERSONAL_TOKEN);
+            const teams = await getCohorts("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");
             const updatedTeams = convertTeamNames(teams);
             setCohorts(updatedTeams);
         })();
