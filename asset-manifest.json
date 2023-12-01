@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/quick-commit-view/static/css/main.7fe83f75.css",
+    "main.js": "/quick-commit-view/static/js/main.559ba80c.js",
+    "index.html": "/quick-commit-view/index.html",
+    "main.7fe83f75.css.map": "/quick-commit-view/static/css/main.7fe83f75.css.map",
+    "main.559ba80c.js.map": "/quick-commit-view/static/js/main.559ba80c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7fe83f75.css",
+    "static/js/main.559ba80c.js"
+  ]
+}
