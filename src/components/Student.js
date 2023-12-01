@@ -10,7 +10,7 @@ function Student({ student }) {
     return (
         <StudentContainer>
             <LeftWrapper>
-                <a target={"_blank"} href={student.html_url}>{student.login}</a>
+                <a rel="noreferrer" target="_blank" href={student.html_url}>{student.login}</a>
                 <StudentImg src={student.avatar_url} onClick={handleAvatarClick} />
             </LeftWrapper>
             <RightWrapper>

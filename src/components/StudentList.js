@@ -9,7 +9,7 @@ function StudentList({ cohort }) {
     useEffect(() => {
         (async () => {
             console.log(cohort);
-            if(cohort != -1) {
+            if(cohort !== -1) {
                 console.log("Inside if")
                 const teamMembers = await getTeamMembers(cohort, process.env.REACT_APP_GITHUB_PERSONAL_TOKEN);
                 setMembers(teamMembers);
